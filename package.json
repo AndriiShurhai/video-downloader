@@ -1,0 +1,22 @@
+{
+  "name": "grabber",
+  "productName": "Grabber",
+  "version": "1.0.0",
+  "description": "Download videos and audio from YouTube, TikTok and 1000+ sites",
+  "main": "main.js",
+  "scripts": { "start": "electron .", "dist": "electron-builder" },
+  "dependencies": { "ffmpeg-static": "^5.3.0" },
+  "devDependencies": { "electron": "^45.3.3", "electron-builder": "^26.18.0" },
+  "build": {
+    "appId": "app.grabber.desktop",
+    "productName": "Grabber",
+    "files": ["main.js", "preload.js", "renderer/**/*"],
+    "asarUnpack": ["**/node_modules/ffmpeg-static/**"],
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "win": { "target": ["nsis", "portable"] },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "artifactName": "${productName}-Setup-${version}.${ext}" },
+    "portable": { "artifactName": "${productName}-Portable-${version}.${ext}" },
+    "mac": { "target": "dmg", "category": "public.app-category.video" },
+    "linux": { "target": "AppImage", "category": "AudioVideo" }
+  }
+}

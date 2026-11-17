@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https: data:; style-src 'self'; script-src 'self'">
+  <title>Grabber</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+  <header>
+    <div class="logo">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14"/></svg>
+    </div>
+    <div>
+      <h1>Grabber</h1>
+      <p>Video &amp; audio from YouTube, TikTok and 1000+ sites</p>
+    </div>
+    <span id="engine" class="pill" data-state="setup">Setting up engine…</span>
+  </header>
+
+  <section class="card urlbar">
+    <input id="url" placeholder="Paste a video link…" spellcheck="false" autofocus>
+    <button id="fetch" class="btn">Fetch</button>
+  </section>
+
+  <div id="error" class="error" hidden></div>
+
+  <section id="panel" class="card" hidden>
+    <div class="preview">
+      <img id="thumb" alt="">
+      <div><h2 id="title"></h2><p id="sub"></p></div>
+    </div>
+    <div class="opts">
+      <div class="row"><label>Type</label><div id="mode" class="chips"></div></div>
+      <div id="video-opts">
+        <div class="row"><label>Quality</label><div id="quality" class="chips"></div></div>
+        <div class="row"><label>Format</label><div id="vfmt" class="chips"></div></div>
+      </div>
+      <div id="audio-opts" hidden>
+        <div class="row"><label>Format</label><div id="afmt" class="chips"></div></div>
+        <div class="row" id="abr-row"><label>Bitrate</label><div id="abr" class="chips"></div></div>
+      </div>
+      <div class="row"><label>Save to</label><div class="path"><span id="dir"></span><button id="pick" class="ghost">Change</button></div></div>
+    </div>
+    <button id="download" class="btn big">Download</button>
+  </section>
+
+  <section id="jobs"></section>
+  <footer>For personal use. You're responsible for respecting copyright and each site's terms of service.</footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
